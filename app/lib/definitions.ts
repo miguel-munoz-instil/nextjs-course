@@ -86,3 +86,219 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type Tool = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type ToolsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type ToolForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type WeaverSkill = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type WeaverSkillsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type WeaverSkillForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type NeedleUpgrade = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type NeedleUpgradesTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type NeedleUpgradeForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type MaskShard = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type MaskShardsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type MaskShardForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkSpool = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkSpoolsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkSpoolForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkHeart = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkHeartsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type SilkHeartForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type CraftingKitToolPouch = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type CraftingKitToolPouchTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type CraftingKitToolPouchForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type Crest = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type CrestsTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type CrestForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type Ability = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type AbilitiesTable = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};
+
+export type AbilityForm = {
+  id: string;
+  name: string;
+  status: 'pending' | 'collected';
+  notes: string;
+  percentage: number;
+};

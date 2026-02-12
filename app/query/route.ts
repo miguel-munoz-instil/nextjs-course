@@ -1,4 +1,5 @@
 import postgres from 'postgres';
+import { auth } from '@/auth';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -14,13 +15,31 @@ async function listInvoices() {
 }
 
 export async function GET() {
-  // return Response.json({
-  //   message:
-  //     'Uncomment this file and remove this line. You can delete this file when you are finished.',
-  // });
+  // Authentication check - only authenticated users can query the database
+  const session = await auth();
+  
+  if (!session?.user) {
+    return Response.json(
+      { error: 'Unauthorized. You must be logged in to access this endpoint.' },
+      { status: 401 }
+    );
+  }
+
+  // Additional protection: only allow in development environment
+  if (process.env.NODE_ENV === 'production') {
+    return Response.json(
+      { error: 'Forbidden. This query endpoint is not available in production.' },
+      { status: 403 }
+    );
+  }
+
   try {
   	return Response.json(await listInvoices());
   } catch (error) {
-  	return Response.json({ error }, { status: 500 });
+    // Log detailed error only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Query error:', error);
+    }
+  	return Response.json({ error: 'Failed to execute query.' }, { status: 500 });
   }
 }

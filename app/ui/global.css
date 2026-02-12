@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Silksong-inspired dark theme */
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #f5f5f5;
+  }
+  
+  body {
+    @apply bg-black text-silk-white;
+  }
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;

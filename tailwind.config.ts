@@ -12,10 +12,18 @@ const config: Config = {
         '13': 'repeat(13, minmax(0, 1fr))',
       },
       colors: {
+        // Silksong-inspired color palette
+        'thorny-purple': '#6a2c70',
+        'silk-silver': '#c3c5c4',
+        'needle-green': '#3a6351',
+        'void-black': '#1b1b1e',
+        'thorny-red': '#b71c1c',
+        'silk-white': '#f5f5f5',
+        // Replace blue with thorny red
         blue: {
-          400: '#2589FE',
-          500: '#0070F3',
-          600: '#2F6FEB',
+          400: '#d32f2f',
+          500: '#b71c1c',
+          600: '#9a0007',
         },
       },
     },

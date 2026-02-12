@@ -1,8 +1,15 @@
 'use client';
 import {
-  UserGroupIcon,
   HomeIcon,
-  DocumentDuplicateIcon,
+  WrenchScrewdriverIcon,
+  SparklesIcon,
+  BeakerIcon,
+  PuzzlePieceIcon,
+  CircleStackIcon,
+  HeartIcon,
+  CubeIcon,
+  ShieldCheckIcon,
+  BoltIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,12 +21,15 @@ import clsx from 'clsx';
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Tools', href: '/dashboard/tools', icon: WrenchScrewdriverIcon },
+  { name: 'Weaver Skills', href: '/dashboard/weaver-skills', icon: SparklesIcon },
+  { name: 'Needle Upgrades', href: '/dashboard/needle-upgrades', icon: BeakerIcon },
+  { name: 'Mask Shards', href: '/dashboard/mask-shards', icon: PuzzlePieceIcon },
+  { name: 'Silk Spools', href: '/dashboard/silk-spools', icon: CircleStackIcon },
+  { name: 'Silk Hearts', href: '/dashboard/silk-hearts', icon: HeartIcon },
+  { name: 'Crafting Kit + Tool Pouch', href: '/dashboard/crafting-kit-tool-pouch', icon: CubeIcon },
+  { name: 'Crests', href: '/dashboard/crests', icon: ShieldCheckIcon },
+  { name: 'Abilities', href: '/dashboard/abilities', icon: BoltIcon },
 ];
 
 export default function NavLinks() {
@@ -34,9 +44,9 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-void-black p-3 text-sm font-medium hover:bg-thorny-purple hover:text-silk-white md:flex-none md:justify-start md:p-2 md:px-3 transition-colors',
               {
-                'bg-sky-100 text-blue-600': pathname === link.href,
+                'bg-thorny-red text-silk-white': pathname === link.href,
               },
             )}
           >
