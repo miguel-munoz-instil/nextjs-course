@@ -15,6 +15,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Dashboard',
 };
+
+// Force dynamic rendering - don't try to pre-render at build time
+export const dynamic = 'force-dynamic';
  
 export default async function Page() {
   return (

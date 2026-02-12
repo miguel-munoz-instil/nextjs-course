@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: 'Crafting Kit + Tool Pouch',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page(props: {
   searchParams?: Promise<{
     query?: string;

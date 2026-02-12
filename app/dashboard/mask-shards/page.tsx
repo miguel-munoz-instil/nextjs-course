@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: 'Mask Shards',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page({
   searchParams,
 }: {

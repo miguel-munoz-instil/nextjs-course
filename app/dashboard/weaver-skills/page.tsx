@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: 'Weaver Skills',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page({
   searchParams,
 }: {
