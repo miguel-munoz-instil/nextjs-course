@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: 'Create Silk Heart',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   return (
     <main>

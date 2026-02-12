@@ -3,8 +3,10 @@ import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Create Item',
+  title: 'Create Crafting Kit + Tool Pouch Item',
 };
+
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   return (

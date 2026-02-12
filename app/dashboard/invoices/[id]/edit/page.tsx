@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Edit Invoice',
 };
+
+export const dynamic = 'force-dynamic';
  
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
