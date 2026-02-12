@@ -73,7 +73,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
-export async function updateInvoice(id: string, formData: FormData) {
+export async function updateInvoice(id: string, formData: FormData): Promise<void> {
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -89,17 +89,25 @@ export async function updateInvoice(id: string, formData: FormData) {
         WHERE id = ${id}
       `;
   } catch (error) {
-    // We'll also log the error to the console for now
-    console.error(error);
-    return { message: 'Database Error: Failed to Update Invoice.' };
+    if (process.env.NODE_ENV === 'development') {
+      console.error(error);
+    }
+    throw new Error('Database Error: Failed to Update Invoice.');
   }
  
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
 
-export async function deleteInvoice(id: string) {
-  await sql`DELETE FROM invoices WHERE id = ${id}`;
+export async function deleteInvoice(id: string): Promise<void> {
+  try {
+    await sql`DELETE FROM invoices WHERE id = ${id}`;
+  } catch (error) {
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
+    throw new Error('Failed to delete invoice.');
+  }
   revalidatePath('/dashboard/invoices');
 }
 
@@ -197,12 +205,14 @@ export async function updateTool(id: string, prevState: ToolState, formData: For
   redirect('/dashboard/tools');
 }
 
-export async function deleteTool(id: string) {
+export async function deleteTool(id: string): Promise<void> {
   try {
     await sql`DELETE FROM tools WHERE id = ${id}`;
     revalidatePath('/dashboard/tools');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Tool.');
   }
 }
@@ -295,12 +305,14 @@ export async function updateWeaverSkill(id: string, prevState: WeaverSkillState,
   redirect('/dashboard/weaver-skills');
 }
 
-export async function deleteWeaverSkill(id: string) {
+export async function deleteWeaverSkill(id: string): Promise<void> {
   try {
     await sql`DELETE FROM weaver_skills WHERE id = ${id}`;
     revalidatePath('/dashboard/weaver-skills');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Weaver Skill.');
   }
 }
@@ -399,12 +411,14 @@ export async function updateNeedleUpgrade(
   redirect('/dashboard/needle-upgrades');
 }
 
-export async function deleteNeedleUpgrade(id: string) {
+export async function deleteNeedleUpgrade(id: string): Promise<void> {
   try {
     await sql`DELETE FROM needle_upgrades WHERE id = ${id}`;
     revalidatePath('/dashboard/needle-upgrades');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Needle Upgrade.');
   }
 }
@@ -503,12 +517,14 @@ export async function updateMaskShard(
   redirect('/dashboard/mask-shards');
 }
 
-export async function deleteMaskShard(id: string) {
+export async function deleteMaskShard(id: string): Promise<void> {
   try {
     await sql`DELETE FROM mask_shards WHERE id = ${id}`;
     revalidatePath('/dashboard/mask-shards');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Mask Shard.');
   }
 }
@@ -607,12 +623,14 @@ export async function updateSilkSpool(
   redirect('/dashboard/silk-spools');
 }
 
-export async function deleteSilkSpool(id: string) {
+export async function deleteSilkSpool(id: string): Promise<void> {
   try {
     await sql`DELETE FROM silk_spools WHERE id = ${id}`;
     revalidatePath('/dashboard/silk-spools');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Silk Spool.');
   }
 }
@@ -710,12 +728,14 @@ export async function updateSilkHeart(
   redirect('/dashboard/silk-hearts');
 }
 
-export async function deleteSilkHeart(id: string) {
+export async function deleteSilkHeart(id: string): Promise<void> {
   try {
     await sql`DELETE FROM silk_hearts WHERE id = ${id}`;
     revalidatePath('/dashboard/silk-hearts');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Silk Heart.');
   }
 }
@@ -818,7 +838,9 @@ export async function deleteCraftingKitToolPouch(id: string) {
     await sql`DELETE FROM crafting_kit_tool_pouch WHERE id = ${id}`;
     revalidatePath('/dashboard/crafting-kit-tool-pouch');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Crafting Kit + Tool Pouch Item.');
   }
 }
@@ -916,12 +938,14 @@ export async function updateCrest(
   redirect('/dashboard/crests');
 }
 
-export async function deleteCrest(id: string) {
+export async function deleteCrest(id: string): Promise<void> {
   try {
     await sql`DELETE FROM crests WHERE id = ${id}`;
     revalidatePath('/dashboard/crests');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Crest.');
   }
 }
@@ -1019,12 +1043,14 @@ export async function updateAbility(
   redirect('/dashboard/abilities');
 }
 
-export async function deleteAbility(id: string) {
+export async function deleteAbility(id: string): Promise<void> {
   try {
     await sql`DELETE FROM abilities WHERE id = ${id}`;
     revalidatePath('/dashboard/abilities');
   } catch (error) {
-    console.error('Database Error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Database Error:', error);
+    }
     throw new Error('Failed to Delete Ability.');
   }
 }
